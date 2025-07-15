@@ -1,43 +1,75 @@
-import React from 'react'
+"use client"
 
+import FileUplode from "@/_component/FileUplode";
+import Link from "next/link";
+import React, { useState } from "react";
 const page = () => {
     return (
         <>
 
-            <div className='container'>
-                <div className='row py-3'>
-                    <div className='col-12 col-md-8 col-lg-8'>
-                        <div className='releases-form bg-white p-3 rounded-3'>
-                            <form>
-                                <div className="artwork-upload mb-4">
-                                    <label htmlFor="artwork" className="label">Label Logo <span className="text-danger">*</span></label>
-                                    <div className="upload-box position-relative border border-dashed rounded d-flex align-items-center justify-content-center" style={{ width: "150px", height: "150px", backgroundColor: "#f9f9f9" }}>
-                                        <input type="file" id="artwork" className="file-input position-absolute w-100 h-100 opacity-0" />
-                                        <p className="upload-text z-1 text-muted">Upload</p>
-                                    </div>
-                                    <p className="upload-note text-secondary small mt-2">Please Upload 3000x3000 px</p>
-                                </div>
-
-                                <div className="form-group">
-                                    <label>Label Name<span className="text-danger">*</span></label>
-                                    <input type="text" className="form-control" placeholder="Name" />
-                                </div>
-                            </form>
+            <div className="container">
+                <h2 className="fw-bold mb-2">Create Label</h2>
+                <div className="form-card p-4">
+                    <h5 className="mb-4">Personal Information</h5>
+                    <hr className="horizontal dark mt-0 mb-2" />
+                    <div className="row g-4">
+                        <div className="col-md-4">
+                            <label className="form-label text-white">Label Name <span className='text-danger'>*</span></label>
+                            <input type="text" className="form-control dark-input" placeholder="Enter Label Name" />
                         </div>
-                    </div>
-                    <div className='col-12 col-md-4 col-lg-4 bg-white rounded-3 p-3'>
-                        <div className='side-headingn p-3 rounded-3 px-4'>
-                            <div className='d-flex justify-content-center align-items-center gap-2'>
-                                <i className="material-symbols-rounded opacity-5">chat</i>
-                                <p className='fw-bold mt-2'>Release Notices</p>
-                            </div>
-
-                            <div className='side-card bg-gray-200 rounded-3 text-center text-black p-3 mt-3'>
-                                No notice yet.
-                            </div>
+                        <div className="col-md-4">
+                            <label className="form-label text-white">Full Name <span className='text-danger'>*</span></label>
+                            <input type="text" className="form-control dark-input" placeholder="Enter Full Name" />
+                        </div>
+                        <div className="col-md-4">
+                            <label className="form-label text-white">Mobile Number <span className='text-danger'>*</span></label>
+                            <input type="number" className="form-control dark-input" placeholder="Enter Mobile Number" />
+                        </div>
+                        <div className="col-md-4">
+                            <label className="form-label text-white">Email ID <span className='text-danger'>*</span></label>
+                            <input type="email" className="form-control dark-input" placeholder="Enter Email ID" />
+                        </div>
+                        <div className="col-md-4">
+                            <label className="form-label text-white">Address Line 1  <span className='text-danger'>*</span></label>
+                            <input type="text" className="form-control dark-input" placeholder="Enter Address Line 1" />
+                        </div>
+                        <div className="col-md-4">
+                            <label className="form-label text-white">Address Line 2</label>
+                            <input type="text" className="form-control dark-input" placeholder="Enter Address Line 2" />
+                        </div>
+                        <div className="col-md-4">
+                            <label className="form-label text-white">City  <span className='text-danger'>*</span></label>
+                            <input type="text" className="form-control dark-input" placeholder="Enter City" />
+                        </div>
+                        <div className="col-md-4">
+                            <label className="form-label text-white">State <span className='text-danger'>*</span></label>
+                            <input type="text" className="form-control dark-input" placeholder="Enter State" />
+                        </div>
+                        <div className="col-md-4">
+                            <label className="form-label text-white">Pincode <span className='text-danger'>*</span></label>
+                            <input type="text" className="form-control dark-input" placeholder="Enter Pincode" />
                         </div>
                     </div>
                 </div>
+
+                <div className="form-card p-4">
+                    <h5 className="mb-4">Adhar Card Details</h5>
+                    <hr className="horizontal dark mt-0 mb-2" />
+                    <div className="row g-4">
+                        <div className="col-md-6">
+                            <label className="form-label">Aadhar Card Front Photo <span className="text-danger">*</span></label>
+                            <FileUplode />
+                        </div>
+                        {/* <div className="col-md-6">
+                            <label className="form-label">Aadhar Card Front Photo <span className="text-danger">*</span></label>
+                            <FileUplode />
+                        </div> */}
+                    </div>
+                </div>
+                 <div className='w-20'>
+                <Link className="btn bg-gradient-green text-black w-100" href="/label/create" type="button">
+                    Create</Link>
+            </div>
             </div>
 
         </>

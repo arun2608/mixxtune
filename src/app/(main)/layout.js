@@ -15,9 +15,9 @@ import { useState } from "react";
 
 export default function RootLayout({ children }) {
 
-  const [lightheme, setLightTheme] = useState(false)
-  const toggleTheme = () => {
-    setLightTheme((prevState) => !prevState);
+  const [sidebar, setSidebar] = useState(false)
+  const toggleSidebar = () => {
+    setSidebar((prevState) => !prevState);
   };
 
   return (
@@ -35,10 +35,10 @@ export default function RootLayout({ children }) {
         <link href="/assets/css/coustom.css" rel="stylesheet" />
 
       </head>
-      <body className={`${lightheme ? "g-sidenav-show dark-version bg-gray-600  " : "g-sidenav-show bg-gray-100"}`}>
+      <body className={`${sidebar ? "g-sidenav-show dark-version bg-gray-600 g-sidenav-pinned" : "g-sidenav-show dark-version bg-gray-600"}`}>
         <Sidebar />
         <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
-          <Header toggleTheme={toggleTheme}/>
+          <Header toggleSidebar={toggleSidebar}/>
           {children}
           <Footer />
         </main>

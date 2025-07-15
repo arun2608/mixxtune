@@ -8,16 +8,17 @@ const Sidebar = () => {
     const pathname = usePathname();
 
     const navItems = [
-        { label: 'Dashboard', icon: 'dashboard', href: '/',key:1},
-        { label: 'Home', icon: 'home', href: '/home' ,key:2 },
-        { label: 'Releases', icon: 'library_music', href: '/releases' ,key:3},
-        { label: 'Artist', icon: 'portrait', href: '/artists' ,key:4},
-        { label: 'Label', icon: 'local_offer', href: '/label' ,key:5},
-        { label: 'Wallet', icon: 'WALLET', href: '#' ,key:6},
-        { label: 'Statistics', icon: 'analytics', href: '#' ,key:7},
-        { label: 'Account', icon: 'person_outline', href: '#' ,key:8},
-        { label: 'Support', icon: 'support_agent', href: '/support' ,key:9 },
-        { label: 'Log Out', icon: 'logout', href: '/admin/login' ,key:10},
+        { label: 'Dashboard', icon: 'dashboard', href: '/', key: 1 },
+        { label: 'Label', icon: 'create_new_folder', href: '/label', key: 2 },
+        { label: 'Artist', icon: 'artist', href: '/artists', key: 3 },
+        { label: 'Audio Releases', icon: 'library_music', href: '/releases', key: 4 },
+        { label: 'Video Songs', icon: 'video_library', href: '#', key: 5 },
+        { label: 'Release Copyright Claim', icon: 'do_not_disturb_on', href: '#', key: 6 },
+        { label: 'Analytics', icon: 'bar_chart', href: '#', key: 7 },
+        { label: 'Bank Account', icon: 'account_balance', href: '#', key: 8 },
+        { label: 'Payment Withdrawa', icon: 'wallet', href: '#', key: 9},
+        { label: 'Payment Historys', icon: 'payments', href: '#', key: 10 },
+        { label: 'Log Out', icon: 'logout', href: '/admin/login', key: 11 },
     ];
     return (
         <>
@@ -34,7 +35,7 @@ const Sidebar = () => {
 
                 <div className="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
                     <ul className="navbar-nav">
-                        {navItems.map(({ label, icon, href,key }) => (
+                        {navItems.map(({ label, icon, href, key }) => (
                             <li className="nav-item" key={key}>
                                 <Link
                                     href={href}

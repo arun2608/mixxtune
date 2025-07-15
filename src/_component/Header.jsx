@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = ({toggleTheme}) => {
+const Header = ({toggleSidebar}) => {
     return (
         <>
             <nav className="navbar mt-3 mb-4 navbar-main navbar-expand-lg px-0 mx-3 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -19,19 +19,13 @@ const Header = ({toggleTheme}) => {
                             </div>
                         </div>
                         <ul className="navbar-nav d-flex align-items-center  justify-content-end">
-                            <li className="nav-item d-xl-none ps-3 d-flex align-items-center">
+                            <li className="nav-item d-xl-none ps-3 d-flex align-items-center"  onClick={toggleSidebar}>
                                 <a href="#" className="nav-link text-body p-0" id="iconNavbarSidenav">
                                     <div className="sidenav-toggler-inner">
                                         <i className="sidenav-toggler-line"></i>
                                         <i className="sidenav-toggler-line"></i>
                                         <i className="sidenav-toggler-line"></i>
                                     </div>
-                                </a>
-                            </li>
-
-                            <li className="nav-item px-3 d-flex align-items-center">
-                                <a href="#" className="nav-link text-body p-0" onClick={toggleTheme}>
-                                    <i className="material-symbols-rounded fixed-plugin-button-nav">Bedtime</i>
                                 </a>
                             </li>
 

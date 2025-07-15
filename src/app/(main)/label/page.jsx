@@ -9,7 +9,7 @@ const page = () => {
 
             <div className='page-wrapper container'>
                 <div className='row'>
-                    <div className='col-12 col-md-8 col-lg-8'>
+                    <div className='col-12'>
                         <div className='card p-3 rounded-3'>
                             <div className='d-flex justify-content-between'>
                                 <div className=" pe-md-3 align-items-center ">
@@ -69,17 +69,6 @@ const page = () => {
                                 </div>
                             </div>
 
-                        </div>
-                    </div>
-                    <div className='col-12 col-md-4 col-lg-4 card rounded-3 p-3'>
-                        <div className='side-headingn p-3 rounded-3 px-4'>
-                            <div className='d-flex justify-content-center align-items-center gap-2'>
-                                <i className="material-symbols-rounded opacity-5">chat</i>
-                                <p className='fw-bold mt-2'>Release Notices</p>
-                            </div>
-                            <div className='side-card bg-gray-200 rounded-3 text-center text-black p-3 mt-3'>
-                                No notice yet.
-                            </div>
                         </div>
                     </div>
                 </div>

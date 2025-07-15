@@ -1,62 +1,54 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import FileUplode from '@/_component/FileUplode';
 
 const Page = () => {
 
     return (
-        <div className='container'>
-            <div className='row py-3'>
-                <div className='col-12 col-md-8 col-lg-8'>
-                    <div className='releases-form bg-white p-3 rounded-3'>
-                        <form>
-                            <div className="artwork-upload mb-4">
-                                <label htmlFor="artwork" className="label">Artists Pic <span className="text-danger">*</span></label>
-                                <div className="upload-box position-relative border border-dashed rounded d-flex align-items-center justify-content-center" style={{ width: "150px", height: "150px", backgroundColor: "#f9f9f9" }}>
-                                    <input type="file" id="artwork" className="file-input position-absolute w-100 h-100 opacity-0" />
-                                    <p className="upload-text z-1 text-muted">Upload</p>
-                                </div>
-                                <p className="upload-note text-secondary small mt-2">Please Upload 3000x3000 px</p>
-                            </div>
-
-                            <div className="form-group">
-                                <label>Artists Name<span className="text-danger">*</span></label>
-                                <input type="text" className="form-control" placeholder="Name" />
-                            </div>
-
-                            <div className="form-group">
-                                <label>Artist Email <span className="text-danger">*</span></label>
-                                <input type="email" className="form-control" placeholder="Email" />
-                            </div>
-
-                            <div className="form-group">
-                                <label>Artist Link</label>
-                                <input type="text" className="form-control" placeholder="Featuring Artist" />
-                            </div>
-
-                            <div className='w-30 '>
-                                <Link className=" btn bg-gradient-green text-black w-100" href="#" type="button">
-                                    Submit
-                                </Link>
-                            </div>
-
-
-                        </form>
+        <div className="container">
+            <h2 className="fw-bold mb-2">Create Artist</h2>
+            <div className="form-card p-4">
+                <hr className="horizontal dark mt-0 mb-2" />
+                <div className="row g-4">
+                    <div className="col-md-12">
+                        <label className="form-label">Profile<span className="text-danger">*</span></label>
+                        <FileUplode />
+                    </div>
+                    <div className="col-md-4">
+                        <label className="form-label text-white">Artist Name <span className='text-danger'>*</span></label>
+                        <input type="text" className="form-control dark-input" placeholder="Enter Artist Name" />
+                    </div>
+                    <div className="col-md-4">
+                        <label className="form-label text-white">Spotify ID <span className='text-danger'>*</span></label>
+                        <input type="text" className="form-control dark-input" placeholder="Enter Spotify ID " />
+                    </div>
+                    <div className="col-md-4">
+                        <label className="form-label text-white">Apple ID <span className='text-danger'>*</span></label>
+                        <input type="text" className="form-control dark-input" placeholder="Enter Apple ID" />
+                    </div>
+                    <div className="col-md-4">
+                        <label className="form-label text-white">Email ID <span className='text-danger'>*</span></label>
+                        <input type="email" className="form-control dark-input" placeholder="Enter Email ID" />
+                    </div>
+                    <div className="col-md-4">
+                        <label className="form-label text-white">Instagram  <span className='text-danger'>*</span></label>
+                        <input type="text" className="form-control dark-input" placeholder="Enter Instagram ID" />
+                    </div>
+                    <div className="col-md-4">
+                        <label className="form-label text-white">Facebook</label>
+                        <input type="text" className="form-control dark-input" placeholder="Enter Facebook ID" />
+                    </div>
+                    <div className="col-md-12">
+                        <label className="form-label text-white">About <span className='text-danger'>*</span></label>
+                        <textarea className="form-control dark-input" />
                     </div>
                 </div>
 
-                <div className='col-12 col-md-4 col-lg-4 bg-white rounded-3 p-3'>
-                    <div className='side-headingn p-3 rounded-3 px-4'>
-                        <div className='d-flex justify-content-center align-items-center gap-2'>
-                            <i className="material-symbols-rounded opacity-5">chat</i>
-                            <p className='fw-bold mt-2'>Release Notices</p>
-                        </div>
-
-                        <div className='side-card bg-gray-200 rounded-3 text-center text-black p-3 mt-3'>
-                            No notice yet.
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div className='w-20'>
+                <Link className="btn bg-gradient-green text-black w-100" href="/label/create" type="button">
+                    Create</Link>
             </div>
         </div>
     );

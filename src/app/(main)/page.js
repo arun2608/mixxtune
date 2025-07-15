@@ -318,7 +318,7 @@ export default function Home() {
               <div className="card-header pb-0">
                 <div className="row">
                   <div className="col-lg-6 col-7">
-                    <h6>Projects</h6>
+                    <h6>Latest Songs</h6>
                     <p className="text-sm mb-0">
                       <i className="fa fa-check text-info" aria-hidden="true"></i>
                       <span className="font-weight-bold ms-1">30 done</span> this month
