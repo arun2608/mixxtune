@@ -24557,7 +24557,9 @@ hr.horizontal.gray-light {
     }
 
     .g-sidenav-show .navbar:not(.sidenav).navbar-main .navbar-nav {
-        flex-direction: row
+        flex-direction: row;
+        gap: 10px;
+        
     }
 
     .navbar .navbar-collapse .navbar-nav .dropdown .dropdown-menu {

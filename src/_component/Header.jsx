@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = ({toggleSidebar}) => {
+const Header = ({ toggleSidebar }) => {
     return (
         <>
             <nav className="navbar mt-3 mb-4 navbar-main navbar-expand-lg px-0 mx-3 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -19,22 +19,11 @@ const Header = ({toggleSidebar}) => {
                             </div>
                         </div>
                         <ul className="navbar-nav d-flex align-items-center  justify-content-end">
-                            <li className="nav-item d-xl-none ps-3 d-flex align-items-center"  onClick={toggleSidebar}>
-                                <a href="#" className="nav-link text-body p-0" id="iconNavbarSidenav">
-                                    <div className="sidenav-toggler-inner">
-                                        <i className="sidenav-toggler-line"></i>
-                                        <i className="sidenav-toggler-line"></i>
-                                        <i className="sidenav-toggler-line"></i>
-                                    </div>
-                                </a>
-                            </li>
-
                             <li className="nav-item pe-3 d-flex align-items-center">
                                 <a href="#" className="nav-link text-body p-0">
                                     <i className="material-symbols-rounded fixed-plugin-button-nav">settings</i>
                                 </a>
                             </li>
-
 
                             <li className="nav-item dropdown pe-3 d-flex align-items-center">
                                 <a href="#" className="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -109,9 +98,20 @@ const Header = ({toggleSidebar}) => {
                                     </li> */}
                                 </ul>
                             </li>
+
                             <li className="nav-item d-flex align-items-center">
                                 <a href="/admin/login" className="nav-link text-body font-weight-bold px-0">
                                     <i className="material-symbols-rounded">account_circle</i>
+                                </a>
+                            </li>
+
+                            <li className="nav-item d-xl-none ps-3 d-flex align-items-center" onClick={toggleSidebar}>
+                                <a href="#" className="nav-link text-body p-0" id="iconNavbarSidenav">
+                                    <div className="sidenav-toggler-inner">
+                                        <i className="sidenav-toggler-line"></i>
+                                        <i className="sidenav-toggler-line"></i>
+                                        <i className="sidenav-toggler-line"></i>
+                                    </div>
                                 </a>
                             </li>
                         </ul>
