@@ -3,183 +3,153 @@ import React, { useState } from 'react';
 import Link from 'next/link'
 
 const page = () => {
-
     const [activeTab, setActiveTab] = useState("All");
+
     return (
         <>
-
             <div className='page-wrapper container'>
                 <div className='row'>
-                    <div className='col-12 col-md-8 col-lg-8'>
+                    <div className='col-12'>
                         <div className='card p-3 rounded-3'>
                             <div className='d-flex justify-content-between'>
-                                <div className=" pe-md-3 align-items-center ">
+                                <div className="pe-md-3 mb-3 align-items-center">
                                     <div className="input-group input-group-outline">
                                         <label className="form-label">Search here...</label>
                                         <input type="text" className="form-control" />
                                     </div>
                                 </div>
-                                <div>
-                                    <div className="">
-                                        <Link className="btn bg-gradient-green text-black w-100" href="/releases/create" type="button">
-                                            Create</Link>
+                                {/* <div>
+                                    <Link className="btn bg-gradient-green text-black w-100" href="#" type="button">
+                                        Create
+                                    </Link>
+                                </div> */}
+                            </div>
+
+                            <div className="row">
+                                <div className="col-12">
+                                    <div className="card my-4">
+                                        <div className="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                            <div className="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
+                                                <h6 className="text-white text-capitalize ps-3">All Releases</h6>
+                                            </div>
+                                        </div>
+                                        <div className="card-body px-0 pb-2">
+                                            <div className="table-responsive p-0">
+                                                <table className="table align-items-center mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
+                                                            <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                                                            <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Title / Artist</th>
+                                                            <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Label</th>
+                                                            <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Release date/<br /> Hour / Time zone</th>
+                                                            <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">No. of track</th>
+                                                            <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">UPC / Catalog Number</th>
+                                                            <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Promotion</th>
+                                                            <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Delivered  <br />Territories<br /> & Stores</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><i className="material-symbols-rounded">album</i></td>
+                                                            <td><i className="material-symbols-rounded opacity-5">block</i></td>
+                                                            <td>
+                                                                <div className="d-flex align-items-center gap-2">
+                                                                    <img src="/assets/img/team-2.jpg" className="avatar avatar-sm border-radius-lg" alt="album" />
+                                                                    <div className="d-flex flex-column">
+                                                                        <Link href="#">
+                                                                            <p className="mb-0 text-xxs text-danger">Sankatmochan <br /> Hanumanstaka</p>
+                                                                        </Link>
+                                                                        <p className="text-xxs text-secondary mb-0">By Kapil Koli</p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td><p className="text-xxs mb-0">Sanatan <br /> Records</p></td>
+                                                            <td><p className="text-xxs mb-0">05/29/2024</p></td>
+                                                            <td><p className="text-xxs mb-0">1 Track</p></td>
+                                                            <td><p className="text-xxs mb-0">UPC: 3617388727688<br /><span className="text-secondary text-xxs">Cat#: empty</span></p></td>
+                                                            <td><Link href="#" className="text-info text-xxs">Promote</Link></td>
+                                                            <td>
+                                                                <p className="text-xxs mb-0 border p-1 align-items-center d-flex justify-content-center">
+                                                                    <i className="material-symbols-rounded text-xxs me-4">globe</i>
+                                                                    240 terrs.
+                                                                </p>
+                                                                <p className="text-xxs mb-0 border p-1 mt-1 align-items-center d-flex justify-content-center">
+                                                                    <i className="material-symbols-rounded text-xxs me-4">apps</i>
+                                                                    0 stores
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td><i className="material-symbols-rounded">album</i></td>
+                                                            <td><i className="material-symbols-rounded opacity-5">block</i></td>
+                                                            <td>
+                                                                <div className="d-flex align-items-center gap-2">
+                                                                    <img src="/assets/img/team-2.jpg" className="avatar avatar-sm border-radius-lg" alt="album" />
+                                                                    <div className="d-flex flex-column">
+                                                                        <Link href="#">
+                                                                            <p className="mb-0 text-xxs">Sankatmochan <br /> Hanumanstaka</p>
+                                                                        </Link>
+                                                                        <p className="text-xxs text-secondary mb-0">By Sparshika Kapoor</p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td><p className="text-xxs mb-0">Sanatan <br /> Records</p></td>
+                                                            <td><p className="text-xxs mb-0">05/21/2024</p></td>
+                                                            <td><p className="text-xxs mb-0">1 Track</p></td>
+                                                            <td><p className="text-xxs mb-0">UPC: 3617388437358<br /><span className="text-secondary text-xxs">Cat#: empty</span></p></td>
+                                                            <td><Link href="#" className="text-info text-xxs">Promote</Link></td>
+                                                            <td>
+                                                                <p className="text-xxs mb-0 border p-1 align-items-center d-flex justify-content-center">
+                                                                    <i className="material-symbols-rounded text-xxs me-4">globe</i>
+                                                                    240 terrs.
+                                                                </p>
+                                                                <p className="text-xxs mb-0 border p-1 mt-1 align-items-center d-flex justify-content-center">
+                                                                    <i className="material-symbols-rounded text-xxs me-4">apps</i>
+                                                                    0 stores
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td><i className="material-symbols-rounded">album</i></td>
+                                                            <td><i className="material-symbols-rounded opacity-5">block</i></td>
+                                                            <td>
+                                                                <div className="d-flex align-items-center gap-2">
+                                                                    <img src="/assets/img/team-2.jpg" className="avatar avatar-sm border-radius-lg" alt="album" />
+                                                                    <div className="d-flex flex-column">
+                                                                        <Link href="#">
+                                                                            <p className="mb-0 text-xxs">Sankatmochan <br /> Hanumanstaka</p>
+                                                                        </Link>
+                                                                        <p className="text-xxs text-secondary mb-0">By Sparshika Kapoor</p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td><p className="text-xxs mb-0">Sanatan <br /> Records</p></td>
+                                                            <td><p className="text-xxs mb-0">05/21/2024</p></td>
+                                                            <td><p className="text-xxs mb-0">1 Track</p></td>
+                                                            <td><p className="text-xxs mb-0">UPC: 3617388437303<br /><span className="text-secondary text-xxs">Cat#: empty</span></p></td>
+                                                            <td><Link href="#" className="text-info text-xxs">Promote</Link></td>
+                                                            <td>
+                                                                <p className="text-xxs mb-0 border p-1 align-items-center d-flex justify-content-center">
+                                                                    <i className="material-symbols-rounded text-xxs me-4">globe</i>
+                                                                    240 terrs.
+                                                                </p>
+                                                                <p className="text-xxs mb-0 border p-1 mt-1 align-items-center d-flex justify-content-center">
+                                                                    <i className="material-symbols-rounded text-xxs me-4">apps</i>
+                                                                    0 stores
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className='release-count d-flex justify-content-between'>
-                                <div className='d-flex align-items-center'>
-                                    <i className="material-symbols-rounded opacity-5">report</i>
-                                    <p className="nav-link-text ms-1 mb-0">Release Count</p>
-                                </div>
-                                <div className='count mt-2'>
-                                    <span className='mx-2 fw-bold'>0</span>
-                                    <span className='bg-gray-200 text-dark fw-bold p-2 rounded-3'>999</span>
-                                </div>
-                            </div>
-
-
-                            <div className='releases-header  p-3 rounded-3'>
-                                <div className='header-btn d-flex gap-2'>
-                                    <div
-                                        className={`each-release-btn px-3 py-2 rounded ${activeTab === "All" ? "bg-dark text-white" : "bg-gray-200 text-dark"}`}
-                                        onClick={() => setActiveTab("All")}
-                                        style={{ cursor: "pointer" }}
-                                    >
-                                        All
-                                    </div>
-
-                                    <div
-                                        className={`each-release-btn px-3 py-2 rounded ${activeTab === "Approved" ? "bg-dark text-white" : "bg-gray-200 text-dark"}`}
-                                        onClick={() => setActiveTab("Approved")}
-                                        style={{ cursor: "pointer" }}
-                                    >
-                                        Approved
-                                    </div>
-
-                                    <div
-                                        className={`each-release-btn px-3 py-2 rounded ${activeTab === "Pending" ? "bg-dark text-white" : "bg-gray-200 text-dark"}`}
-                                        onClick={() => setActiveTab("Pending")}
-                                        style={{ cursor: "pointer" }}
-                                    >
-                                        Pending
-                                    </div>
-
-                                    <div
-                                        className={`each-release-btn px-3 py-2 rounded ${activeTab === "Action Required" ? "bg-dark text-white" : "bg-gray-200 text-dark"}`}
-                                        onClick={() => setActiveTab("Action Required")}
-                                        style={{ cursor: "pointer" }}
-                                    >
-                                        Action Required
-                                    </div>
-
-                                    <div
-                                        className={`each-release-btn px-3 py-2 rounded ${activeTab === "Unfinished" ? "bg-dark text-white" : "bg-gray-200 text-dark"}`}
-                                        onClick={() => setActiveTab("Unfinished")}
-                                        style={{ cursor: "pointer" }}
-                                    >
-                                        Unfinished
-                                    </div>
-
-                                    <div
-                                        className={`each-release-btn px-3 py-2 rounded ${activeTab === "Rejected" ? "bg-dark text-white" : "bg-gray-200 text-dark"}`}
-                                        onClick={() => setActiveTab("Rejected")}
-                                        style={{ cursor: "pointer" }}
-                                    >
-                                        Rejected
-                                    </div>
-                                </div>
-                            </div>
-
-                            {
-                                activeTab === "All" && (
-                                    <div className='releases-form card p-3 rounded-3 mt-3'>
-                                        <div className='side-headingn p-3 rounded-3 px-4'>
-                                            <div className='side-card bg-gray-200 rounded-3 text-center text-black p-3 mt-3'>
-                                                Nothing Found.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                )
-                            }
-
-                            {
-                                activeTab === "Approved" && (
-                                    <div className='releases-form card p-3 rounded-3 mt-3'>
-                                        <div className='side-headingn p-3 rounded-3 px-4'>
-                                            <div className='side-card bg-gray-200 rounded-3 text-center text-black p-3 mt-3'>
-                                                Nothing Found.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                )
-                            }
-
-                            {
-                                activeTab === "Pending" && (
-                                    <div className='releases-form card p-3 rounded-3 mt-3'>
-                                        <div className='side-headingn p-3 rounded-3 px-4'>
-                                            <div className='side-card bg-gray-200 rounded-3 text-center text-black p-3 mt-3'>
-                                                Nothing Found.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                )
-                            }
-
-                            {
-                                activeTab === "Action Required" && (
-                                    <div className='releases-form  p-3 rounded-3 mt-3'>
-                                        <div className='side-headingn p-3 rounded-3 px-4'>
-                                            <div className='side-card bg-gray-200 rounded-3 text-center text-black p-3 mt-3'>
-                                                Nothing Found.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                )
-                            }
-
-                            {
-                                activeTab === "Unfinished" && (
-                                    <div className='releases-form  p-3 rounded-3 mt-3'>
-                                        <div className='side-headingn p-3 rounded-3 px-4'>
-                                            <div className='side-card bg-gray-200 rounded-3 text-center text-black p-3 mt-3'>
-                                                Nothing Found.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                )
-                            }
-
-
-                            {
-                                activeTab === "Rejected" && (
-                                    <div className='releases-form  p-3 rounded-3 mt-3'>
-                                        <div className='side-headingn p-3 rounded-3 px-4'>
-                                            <div className='side-card bg-gray-200 rounded-3 text-center text-black p-3 mt-3'>
-                                                Nothing Found.
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                )
-                            }
-                        </div>
-                    </div>
-                    <div className='col-12 col-md-4 col-lg-4 card rounded-3 p-3'>
-                        <div className='side-headingn p-3 rounded-3 px-4'>
-                            <div className='d-flex align-items-center gap-2'>
-                                <i className="material-symbols-rounded opacity-5">chat</i>
-                                <p className='fw-bold mt-2'>Release Notices</p>
-                            </div>
-                            <div className='side-card bg-gray-200 rounded-3 text-center text-black p-3 mt-3'>
-                                No notice yet.
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,4 +158,4 @@ const page = () => {
     )
 }
 
-export default page
+export default page;

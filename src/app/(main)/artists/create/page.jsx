@@ -9,7 +9,6 @@ const Page = () => {
         <div className="container">
             <h2 className="fw-bold mb-2">Create Artist</h2>
             <div className="form-card p-4">
-                <hr className="horizontal dark mt-0 mb-2" />
                 <div className="row g-4">
                     <div className="col-md-12">
                         <label className="form-label">Profile<span className="text-danger">*</span></label>

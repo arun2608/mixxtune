@@ -1,7 +1,6 @@
 body {
-    overflow-x: hidden;
+    scrollbar-width: none;
 }
-
 
 .bg-gradient-green {
     background: linear-gradient(135deg, #43a047, #66bb6a);
@@ -15,17 +14,19 @@ body {
     color: #383030;
 }
 
-
-
-.header-btn {
-    gap: 20px;
-    overflow-x: scroll;
-    /* scrollbar-width: none; */
+.text-black {
+    color: #000;
 }
 
 
+.header-btn {
+    gap: 30px;
+}
+
+
+
+
 .each-release-btn {
-    margin-bottom: 10px;
     white-space: nowrap;
     border-radius: 10px;
     display: flex;
@@ -550,10 +551,6 @@ body {
     font-size: 14px;
 }
 
-
-
-
-
 .close-file {
     background-color: #000;
     color: #fff;
@@ -561,4 +558,50 @@ body {
     font-size: 27px;
     margin-left: 15px;
 
+}
+
+
+.popup-model-card {
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1055;
+}
+
+
+.list-unstyled li .dropedown-list:hover {
+    background-color: rgba(244, 228, 228, 0.176);
+    border-radius: 8px;
+}
+
+
+.create-new-release {
+    height: 150px;
+    border-radius: 20px;
+}
+
+.card-img-top {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+.overlay-releases {
+    position: absolute;
+    background-color: #000000c4;
+    width: 100%;
+    line-height: 10px;
+    bottom: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.border-dashed {
+    border-style: dashed !important;
+}
+
+
+@media (max-width:768px) {
+    .create-new-release {
+        margin-bottom: 30px;
+    }
 }

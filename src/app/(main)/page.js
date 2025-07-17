@@ -2,69 +2,69 @@
 
 
 import React from 'react';
-import {Pie, PieChart, AreaChart, Area, BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { Pie, PieChart, AreaChart, Area, BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const data1 = [
-  {
-    name: 'M',
-    uv: 1000,
-    pv: 2400,
-    amt: 100,
-  },
-  {
-    name: 'T',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'W',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'T',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'F',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'S',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'S',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+// const data1 = [
+//   {
+//     name: 'M',
+//     uv: 1000,
+//     pv: 2400,
+//     amt: 100,
+//   },
+//   {
+//     name: 'T',
+//     uv: 3000,
+//     pv: 1398,
+//     amt: 2210,
+//   },
+//   {
+//     name: 'W',
+//     uv: 2000,
+//     pv: 9800,
+//     amt: 2290,
+//   },
+//   {
+//     name: 'T',
+//     uv: 2780,
+//     pv: 3908,
+//     amt: 2000,
+//   },
+//   {
+//     name: 'F',
+//     uv: 1890,
+//     pv: 4800,
+//     amt: 2181,
+//   },
+//   {
+//     name: 'S',
+//     uv: 2390,
+//     pv: 3800,
+//     amt: 2500,
+//   },
+//   {
+//     name: 'S',
+//     uv: 3490,
+//     pv: 4300,
+//     amt: 2100,
+//   },
+// ];
 
 const data2 = [
   {
     name: 'M',
-    uv: 4000,
-    pv: 2400,
+    uv: 1000,
+    pv: 1400,
     amt: 2400,
   },
   {
     name: 'T',
-    uv: 3000,
+    uv: 2790,
     pv: 1398,
     amt: 2210,
   },
   {
     name: 'W',
-    uv: 2000,
+    uv: 1700,
     pv: 9800,
     amt: 2290,
   },
@@ -76,7 +76,7 @@ const data2 = [
   },
   {
     name: 'F',
-    uv: 1890,
+    uv: 1590,
     pv: 4800,
     amt: 2181,
   },
@@ -88,36 +88,36 @@ const data2 = [
   },
   {
     name: 'S',
-    uv: 3490,
+    uv: 2000,
     pv: 4300,
     amt: 2100,
   },
 ];
 
-const data01 = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-  { name: 'Group E', value: 278 },
-  { name: 'Group F', value: 189 },
-];
+// const data01 = [
+//   { name: 'Group A', value: 400 },
+//   { name: 'Group B', value: 300 },
+//   { name: 'Group C', value: 300 },
+//   { name: 'Group D', value: 200 },
+//   { name: 'Group E', value: 278 },
+//   { name: 'Group F', value: 189 },
+// ];
 
-const data02 = [
-  { name: 'Group A', value: 2400 },
-  { name: 'Group B', value: 4567 },
-  { name: 'Group C', value: 1398 },
-  { name: 'Group D', value: 9800 },
-  { name: 'Group E', value: 3908 },
-  { name: 'Group F', value: 4800 },
-];
+// const data02 = [
+//   { name: 'Group A', value: 2400 },
+//   { name: 'Group B', value: 4567 },
+//   { name: 'Group C', value: 1398 },
+//   { name: 'Group D', value: 9800 },
+//   { name: 'Group E', value: 3908 },
+//   { name: 'Group F', value: 4800 },
+// ];
 
 export default function Home() {
   return (
     <>
 
       <div className="container-fluid py-2">
-        <div className="row">
+        {/* <div className="row">
           <div className="ms-3">
             <h3 className="mb-0 h4 font-weight-bolder">Dashboard</h3>
             <p className="mb-4">
@@ -200,9 +200,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="row">
-          <div className="col-lg-4 col-md-6 mt-4 mb-4">
+          {/* <div className="col-lg-4 col-md-6 mt-4 mb-4">
             <div className="card">
               <div className="card-body">
                 <h6 className="mb-0 ">Website Views</h6>
@@ -240,12 +240,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="col-lg-4 col-md-6 mt-4 mb-4">
+          </div> */}
+          <div className="col-12 mt-4 mb-4">
             <div className="card ">
               <div className="card-body">
-                <h6 className="mb-0 "> Daily Sales </h6>
-                <p className="text-sm "> (<span className="font-weight-bolder">+15%</span>) increase in today sales. </p>
+                <h6 className="mb-0 "> Your streaming performance </h6>
+                <p className="text-sm ">Audio streaming (<span className="font-weight-bolder">Last 28 days</span>)</p>
                 <div className="pe-2">
                   <div className="chart">
                     <div style={{ width: '100%', height: 200 }}>
@@ -276,7 +276,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="col-lg-4 mt-4 mb-3">
+          {/* <div className="col-lg-4 mt-4 mb-3">
             <div className="card">
               <div className="card-body">
                 <h6 className="mb-0 ">Completed Tasks</h6>
@@ -310,8 +310,77 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div> */}
+        </div>
+
+        <div className='row mb-4'>
+          <div className='col-12'>
+            <div className='card'>
+              <div className='card-header pb-4'>
+                <h6>Latest Releases</h6>
+                <div className='row'>
+                  <div className="col-12 col-lg-2 col-md-2">
+                    <div className="border border-dashed rounded d-flex flex-column justify-content-center align-items-center p-3 create-new-release">
+                      <div className=" fs-1">+</div>
+                      <a href="#" className="text-primary  text-xs text-nowrap mt-2">Create a new release</a>
+                    </div>
+                  </div>
+                  <div className="col-12 col-lg-2 col-md-2">
+                    <div className="card create-new-release">
+                      <img src="/assets/img/illustrations/illustration-signup.jpg" className="card-img-top" alt="Release 1" />
+                      <div className="card-body p-1 text-center overlay-releases">
+                        <h6 className="mb-0 fw-bold">4</h6>
+                        <small className="text-xs text-muted">streams</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-12 col-lg-2 col-md-2">
+                    <div className="card create-new-release">
+                      <img src="/assets/img/illustrations/pexels-entero-32930806.jpg" className="card-img-top" alt="Release 2" />
+                      <div className="card-body p-1 text-center overlay-releases">
+                        <h6 className="mb-0 fw-bold">3</h6>
+                        <small className="text-xs text-muted">streams</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-12 col-lg-2 col-md-2">
+                    <div className="card create-new-release">
+                      <img src="/assets/img/illustrations/illustration-signup.jpg" className="card-img-top" alt="Release 3" />
+                      <div className="card-body p-1 text-center overlay-releases">
+                        <h6 className="mb-0 fw-bold">2</h6>
+                        <small className="text-xs text-muted">streams</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-12 col-lg-2 col-md-2">
+                    <div className="card create-new-release">
+                      <img src="/assets/img/illustrations/pexels-entero-32930806.jpg" className="card-img-top" alt="Release 3" />
+                      <div className="card-body p-1 text-center overlay-releases">
+                        <h6 className="mb-0 fw-bold">2</h6>
+                        <small className="text-xs text-muted">streams</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-12 col-lg-2 col-md-2">
+                    <div className="card create-new-release">
+                      <img src="/assets/img/illustrations/illustration-signup.jpg" className="card-img-top" alt="Release 3" />
+                      <div className="card-body p-1 text-center overlay-releases">
+                        <h6 className="mb-0 fw-bold">2</h6>
+                        <small className="text-xs text-muted">streams</small>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
         <div className="row mb-4">
           <div className="col-lg-8 col-md-6 mb-md-0 mb-4">
             <div className="card">
