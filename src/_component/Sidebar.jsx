@@ -6,12 +6,15 @@ import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
 const Sidebar = () => {
+
     const pathname = usePathname();
     const [showModal, setShowModal] = useState(false);
     const [modalStep, setModalStep] = useState(0);
     const [releaseType, setReleaseType] = useState('audio');
     const [releaseGenre, setReleaseGenre] = useState('any');
     const [catalogOpen, setCatalogOpen] = useState(false);
+    const [analyticsOpen, setAnalyticsOpen] = useState(false);
+
     const router = useRouter();
 
     return (
@@ -62,34 +65,34 @@ const Sidebar = () => {
 
                         </li>
 
-                        
-                            {catalogOpen && (
-                                <ul className="list-unstyled ps-4">
-                                    <li>
-                                        <Link href="/releases" className={`nav-link dropedown-list ${pathname === '/releases' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                            <span className="ms-1">All Releases</span>
-                                        </Link>
-                                    </li>
 
-                                    <li>
-                                        <Link href="/catalog/video" className={`nav-link dropedown-list ${pathname === '#' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                            <span className="ms-1">Draft</span>
-                                        </Link>
-                                    </li>
+                        {catalogOpen && (
+                            <ul className="list-unstyled ps-4">
+                                <li>
+                                    <Link href="/catalog/releases" className={`nav-link dropedown-list ${pathname === '/catalog/releases' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="ms-1">All Releases</span>
+                                    </Link>
+                                </li>
 
-                                     <li>
-                                        <Link href="/artists" className={`nav-link dropedown-list ${pathname === '/artists' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                            <span className="ms-1">Artist</span>
-                                        </Link>
-                                    </li>
+                                <li>
+                                    <Link href="/catalog/draft" className={`nav-link dropedown-list ${pathname === '/catalog/draft' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="ms-1">Draft</span>
+                                    </Link>
+                                </li>
 
-                                     <li>
-                                        <Link href="/label" className={`nav-link dropedown-list ${pathname === '/label' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                            <span className="ms-1">Label</span>
-                                        </Link>
-                                    </li>
-                                </ul>
-                            )}
+                                <li>
+                                    <Link href="/catalog/artists" className={`nav-link dropedown-list ${pathname === '/catalog/artists' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="ms-1">Artist</span>
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link href="/catalog/label" className={`nav-link dropedown-list ${pathname === '/catalog/label' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="ms-1">Label</span>
+                                    </Link>
+                                </li>
+                            </ul>
+                        )}
 
                         <li className="nav-item">
                             <Link href="#" className="nav-link text-dark">
@@ -99,11 +102,49 @@ const Sidebar = () => {
                         </li>
 
                         <li className="nav-item">
-                            <Link href="#" className="nav-link text-dark">
+                            <Link href="#"
+                                onClick={() => setAnalyticsOpen(!analyticsOpen)}
+                                className={`nav-link ${analyticsOpen ? '' : ''}`}
+                            >
                                 <i className="material-symbols-rounded opacity-5">bar_chart</i>
-                                <span className="nav-link-text ms-1">Analytics</span>
+                                <span className="nav-link-text ms-1 me-7">Analytics</span>
+                                <i className="material-symbols-rounded float-right">{analyticsOpen ? 'expand_less' : 'expand_more'}</i>
                             </Link>
                         </li>
+
+                        {analyticsOpen && (
+                            <ul className="list-unstyled ps-4">
+                                <li>
+                                    <Link href="/analytics/daily-trend" className={`nav-link dropedown-list ${pathname === '/analytics/daily-trend' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="ms-1">Daily Trend</span>
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link href="/catalog/draft" className={`nav-link dropedown-list ${pathname === '/catalog/draft' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="ms-1">Playlists and Charts</span>
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link href="/catalog/artists" className={`nav-link dropedown-list ${pathname === '/catalog/artists' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="ms-1">Views</span>
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link href="/catalog/label" className={`nav-link dropedown-list ${pathname === '/catalog/label' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="ms-1">Short form videos</span>
+                                    </Link>
+                                </li>
+
+                                 <li>
+                                    <Link href="/catalog/label" className={`nav-link dropedown-list ${pathname === '/catalog/label' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="ms-1">Catalog optimization</span>
+                                    </Link>
+                                </li>
+                            </ul>
+                        )}
 
                         <li className="nav-item">
                             <Link href="#" className="nav-link text-dark">
@@ -245,7 +286,7 @@ const Sidebar = () => {
                             ) : (
                                 <button className="btn btn-success rounded-pill px-4" onClick={() => {
                                     setShowModal(false);
-                                    router.push('/releases/create');
+                                    router.push('/catalog/releases/create');
                                 }}>Create</button>
                             )}
                         </div>

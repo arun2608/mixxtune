@@ -605,3 +605,7 @@ body {
         margin-bottom: 30px;
     }
 }
+
+.my-coustome-table {
+    scrollbar-width: none;
+}

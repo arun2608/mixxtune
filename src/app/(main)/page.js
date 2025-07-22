@@ -70,7 +70,7 @@ const data2 = [
   },
   {
     name: 'T',
-    uv: 2780,
+    uv: 3000,
     pv: 3908,
     amt: 2000,
   },
@@ -117,6 +117,7 @@ export default function Home() {
     <>
 
       <div className="container-fluid py-2">
+
         {/* <div className="row">
           <div className="ms-3">
             <h3 className="mb-0 h4 font-weight-bolder">Dashboard</h3>
@@ -726,6 +727,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+
       </div>
     </>
   );

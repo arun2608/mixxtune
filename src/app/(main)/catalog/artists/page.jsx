@@ -21,7 +21,7 @@ const page = () => {
                                 </div>
                                 <div>
                                     <div className="">
-                                        <Link className="btn bg-gradient-green text-black w-100" href="/artists/create" type="button">
+                                        <Link className="btn bg-gradient-green text-black w-100" href="/catalog/artists/create" type="button">
                                             Create</Link>
                                     </div>
                                 </div>
