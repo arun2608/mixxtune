@@ -41,6 +41,8 @@ const page = () => {
                                                         <tr className='d-flex justify-content-between'>
                                                             <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Label Profile</th>
                                                             <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Releases</th>
+                                                            <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Releases</th>
+                                                            <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Releases</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -60,6 +62,17 @@ const page = () => {
                                                                 <p className="text-md font-weight-bold mb-0">0</p>
                                                                 <i className="material-symbols-rounded opacity-5 delete">delete</i>
                                                             </td>
+
+                                                            <td className='d-flex align-items-center  pe-4'>
+                                                                <p className="text-md font-weight-bold mb-0">0</p>
+                                                                <i className="material-symbols-rounded opacity-5 delete">delete</i>
+                                                            </td>
+
+                                                            <td className='d-flex align-items-center  pe-4'>
+                                                                <p className="text-md font-weight-bold mb-0">0</p>
+                                                                <i className="material-symbols-rounded opacity-5 delete">delete</i>
+                                                            </td>
+
                                                         </tr>
                                                     </tbody>
                                                 </table>

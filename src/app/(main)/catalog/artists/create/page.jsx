@@ -45,7 +45,7 @@ const Page = () => {
                 </div>
 
             </div>
-            <div className='w-20'>
+            <div className='w-10'>
                 <Link className="btn bg-gradient-green text-black w-100" href="/label/create" type="button">
                     Create</Link>
             </div>

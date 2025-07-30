@@ -60,10 +60,10 @@ const page = () => {
                             <label className="form-label">Aadhar Card Front Photo <span className="text-danger">*</span></label>
                             <FileUplode />
                         </div>
-                        {/* <div className="col-md-6">
+                        <div className="col-md-6">
                             <label className="form-label">Aadhar Card Front Photo <span className="text-danger">*</span></label>
                             <FileUplode />
-                        </div> */}
+                        </div>
                     </div>
                 </div>
                  <div className='w-20'>

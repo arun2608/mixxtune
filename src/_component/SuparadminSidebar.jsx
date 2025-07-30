@@ -67,7 +67,7 @@ const SuparadminSidebar = () => {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link href="#" className="nav-link text-dark">
+                            <Link href="/superadmin/label" className="nav-link text-dark">
                                 <i className="material-symbols-rounded opacity-5">folder_open</i>
                                 <span className="nav-link-text ms-1">Label</span>
                             </Link>

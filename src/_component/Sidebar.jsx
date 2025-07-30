@@ -58,7 +58,7 @@ const Sidebar = () => {
                                 onClick={() => setCatalogOpen(!catalogOpen)}
                                 className={`nav-link ${catalogOpen ? '' : ''}`}
                             >
-                                <i className="material-symbols-rounded opacity-5">library_music</i>
+                                <i className="material-symbols-rounded opacity-5 me-2">library_music</i>
                                 <span className="nav-link-text ms-1 me-7">Catalog</span>
                                 <i className="material-symbols-rounded float-right">{catalogOpen ? 'expand_less' : 'expand_more'}</i>
                             </Link>
@@ -80,7 +80,13 @@ const Sidebar = () => {
                                     </Link>
                                 </li>
 
-                                <li>
+                                 <li>
+                                    <Link href="/catalog/canceletion-request" className={`nav-link dropedown-list ${pathname === '/catalog/canceletion-request' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="ms-1">Cancelation Request</span>
+                                    </Link>
+                                </li>
+
+                                {/* <li>
                                     <Link href="/catalog/artists" className={`nav-link dropedown-list ${pathname === '/catalog/artists' ? 'active bg-gradient-dark text-white' : ''}`}>
                                         <span className="ms-1">Artist</span>
                                     </Link>
@@ -90,7 +96,7 @@ const Sidebar = () => {
                                     <Link href="/catalog/label" className={`nav-link dropedown-list ${pathname === '/catalog/label' ? 'active bg-gradient-dark text-white' : ''}`}>
                                         <span className="ms-1">Label</span>
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         )}
 
@@ -106,7 +112,7 @@ const Sidebar = () => {
                                 onClick={() => setAnalyticsOpen(!analyticsOpen)}
                                 className={`nav-link ${analyticsOpen ? '' : ''}`}
                             >
-                                <i className="material-symbols-rounded opacity-5">bar_chart</i>
+                                <i className="material-symbols-rounded opacity-5 me-2">bar_chart</i>
                                 <span className="nav-link-text ms-1 me-7">Analytics</span>
                                 <i className="material-symbols-rounded float-right">{analyticsOpen ? 'expand_less' : 'expand_more'}</i>
                             </Link>
@@ -121,7 +127,7 @@ const Sidebar = () => {
                                 </li>
 
                                 <li>
-                                    <Link href="/catalog/draft" className={`nav-link dropedown-list ${pathname === '/catalog/draft' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                    <Link href="/analytics/playlist-chart" className={`nav-link dropedown-list ${pathname === '/analytics/playlist-chart' ? 'active bg-gradient-dark text-white' : ''}`}>
                                         <span className="ms-1">Playlists and Charts</span>
                                     </Link>
                                 </li>
@@ -132,7 +138,7 @@ const Sidebar = () => {
                                     </Link>
                                 </li>
 
-                                <li>
+                                {/* <li>
                                     <Link href="/catalog/label" className={`nav-link dropedown-list ${pathname === '/catalog/label' ? 'active bg-gradient-dark text-white' : ''}`}>
                                         <span className="ms-1">Short form videos</span>
                                     </Link>
@@ -142,7 +148,7 @@ const Sidebar = () => {
                                     <Link href="/catalog/label" className={`nav-link dropedown-list ${pathname === '/catalog/label' ? 'active bg-gradient-dark text-white' : ''}`}>
                                         <span className="ms-1">Catalog optimization</span>
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         )}
 
@@ -161,7 +167,7 @@ const Sidebar = () => {
                         </li>
 
                         <li className="nav-item">
-                            <Link href="#" className="nav-link text-dark">
+                            <Link href="/payment-history" className="nav-link text-dark">
                                 <i className="material-symbols-rounded opacity-5">payments</i>
                                 <span className="nav-link-text ms-1">Payment History</span>
                             </Link>

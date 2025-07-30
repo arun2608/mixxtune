@@ -2,10 +2,11 @@
 
 import Sidebar from "@/_component/Sidebar";
 import '../(main)/globals.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Footer from "@/_component/Footer";
 import Header from "@/_component/Header";
 import { useState } from "react";
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 // export const metadata = {
@@ -25,8 +26,10 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
 
-        <link href="/assets/css/nucleo-icon.css" rel="stylesheet" />
+        <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
+
         <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"/>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
 
@@ -38,7 +41,7 @@ export default function RootLayout({ children }) {
       <body className={`${sidebar ? "g-sidenav-show dark-version bg-gray-600 g-sidenav-pinned" : "g-sidenav-show dark-version bg-gray-600"}`}>
         <Sidebar />
         <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
-          <Header toggleSidebar={toggleSidebar}/>
+          <Header toggleSidebar={toggleSidebar} />
           {children}
           <Footer />
         </main>
