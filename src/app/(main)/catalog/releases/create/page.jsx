@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 // import FileUplode from '@/_component/FileUplode';
 // import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const Page = () => {
     const [activeTab, setActiveTab] = useState(1);
-
+    const [popUp,setPopUp] = useState(0)
     const [preview, setPreview] = useState(null);
 
     const handleFileChange = (e) => {
@@ -857,8 +857,7 @@ const Page = () => {
                             <p>Volume 1</p>
                             <div
                                 className="border rounded-2 p-1 px-2 text-white d-flex justify-content-center align-items-center cursor-pointer"
-                                data-bs-toggle="modal"
-                                data-bs-target="#addTrackModal"
+                                onClick={()=>setPopUp(1)}
                             >
                                 <i className="material-symbols-rounded">add</i>
                                 <span className="ms-1">Add Track</span>
@@ -872,7 +871,7 @@ const Page = () => {
                 )}
 
                 {/* First Modal - Choose Track */}
-                <div className="modal fade" id="addTrackModal" tabIndex="-1" aria-hidden="true">
+                <div className={`modal fade ${popUp == 1 ? "show d-block pop-up-bg":""}`} id="addTrackModal" tabIndex="-1" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered">
                         <div className=" card modal-content rounded-2">
                             <div className="modal-header">
@@ -894,22 +893,21 @@ const Page = () => {
                                 </div>
                             </div>
                             <div className="modal-footer border-top-0">
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setPopUp(0)}>Close</button>
                                 <button type="button" className="btn btn-success"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#metadataModal">Validate</button>
+                                    onClick={()=>setPopUp(2)}>Validate</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Second Modal - Asset Metadata */}
-                <div className="modal fade" id="metadataModal" tabIndex="-1" aria-hidden="true">
+                <div className={`modal fade ${popUp == 2 ? "show d-block pop-up-bg":""}`} id="metadataModal" tabIndex="-1" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered rounded-2 modal-lg secound-popup">
                         <div className="card modal-content rounded-2">
                             <div className="modal-header">
                                 <h5 className="modal-title fw-semibold">Assets metadata</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <button type="button" className="btn-close" onClick={()=>setPopUp(0)} >
                                     <i className="material-symbols-rounded">
                                         close
                                     </i>
@@ -1160,8 +1158,8 @@ const Page = () => {
                                 </form>
                             </div>
                             <div className="modal-footer border-top-0">
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary">Save</button>
+                                {/* <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
+                                <button type="button" className="btn btn-success">Save</button>
                             </div>
                         </div>
                     </div>

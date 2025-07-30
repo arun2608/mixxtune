@@ -1005,3 +1005,8 @@ input:checked~.label-text {
 .form-check:not(.form-switch) .form-check-input[type=checkbox]:checked {
     border-color: #4caf50;
 }
+
+
+.pop-up-bg{
+    background: #0000009e;
+}
