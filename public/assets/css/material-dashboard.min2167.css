@@ -206,6 +206,7 @@ body {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(10, 10, 10, 0)
 }
+
 html {
     overflow-x: hidden;
 
@@ -3819,21 +3820,22 @@ fieldset:disabled .btn {
 }
 
 .btn-primary {
-    --bs-btn-color: #0a0a0a;
-    --bs-btn-bg: #e91e63;
-    --bs-btn-border-color: #e91e63;
-    --bs-btn-hover-color: #0a0a0a;
-    --bs-btn-hover-bg: rgb(236.3, 63.75, 122.4);
-    --bs-btn-hover-border-color: rgb(235.2, 52.5, 114.6);
-    --bs-btn-focus-shadow-rgb: 200, 27, 86;
-    --bs-btn-active-color: #0a0a0a;
-    --bs-btn-active-bg: rgb(237.4, 75, 130.2);
-    --bs-btn-active-border-color: rgb(235.2, 52.5, 114.6);
+    --bs-btn-color: #ffffff; 
+    --bs-btn-bg: #9538ff;
+    --bs-btn-border-color: #9538ff;
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #7f2de0; 
+    --bs-btn-hover-border-color: #7f2de0;
+    --bs-btn-focus-shadow-rgb: 149, 56, 255; 
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: #6f25c4; 
+    --bs-btn-active-border-color: #6f25c4;
     --bs-btn-active-shadow: none;
-    --bs-btn-disabled-color: #0a0a0a;
-    --bs-btn-disabled-bg: #e91e63;
-    --bs-btn-disabled-border-color: #e91e63
+    --bs-btn-disabled-color: #e1d4f9; 
+    --bs-btn-disabled-bg: #9538ff;
+    --bs-btn-disabled-border-color: #9538ff;
 }
+
 
 .btn-secondary {
     --bs-btn-color: #fff;
@@ -21741,14 +21743,14 @@ fieldset:disabled .btn {
 
 .btn-primary:hover,
 .btn.bg-gradient-primary:hover {
-    background-color: #e91e63;
-    border-color: #e91e63;
-    box-shadow: 0 8px 14px -8px rgba(233, 30, 99, .3), 0 3px 18px 0 rgba(233, 30, 99, .1), 0 7px 8px -4px rgba(233, 30, 99, .18)
+    background-color: #9538ff;
+    border-color: #9538ff;
+    /* box-shadow: 0 8px 14px -8px rgba(233, 30, 99, .3), 0 3px 18px 0 rgba(233, 30, 99, .1), 0 7px 8px -4px rgba(233, 30, 99, .18) */
 }
 
 .btn-primary .btn.bg-outline-primary,
 .btn.bg-gradient-primary .btn.bg-outline-primary {
-    border: 1px solid #e91e63
+    border: 1px solid #9538ff;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active,
@@ -21757,8 +21759,8 @@ fieldset:disabled .btn {
 .btn.bg-gradient-primary:not(:disabled):not(.disabled):active,
 .show>.btn-primary.dropdown-toggle,
 .show>.btn.bg-gradient-primary.dropdown-toggle {
-    color: color-yiq(#e91e63);
-    background-color: #e91e63
+    color: color-yiq(#9538ff);
+    background-color: #9538ff;
 }
 
 .btn-primary.focus,
@@ -22601,6 +22603,11 @@ screen and (-ms-high-contrast:active) {
 .dark-version .sidenav.bg-white .collapse .nav-item .nav-link:not(.active) i,
 .dark-version .sidenav.bg-white .collapse .nav-item h6 {
     color: #262626 !important
+}
+
+
+.sidenav .collapse .nav-item .nav-link i {
+    color: #000;
 }
 
 .dark-version .sidenav .collapse .nav-item .nav-link i {
@@ -23728,7 +23735,7 @@ label {
 }
 
 .bg-gradient-primary {
-    background-image: linear-gradient(195deg, #ec407a, #d81b60)
+    background-image: linear-gradient(195deg, #a54dff, #7f2de0);
 }
 
 .bg-gradient-secondary {
@@ -24141,7 +24148,7 @@ hr.horizontal.light {
 }
 
 hr.horizontal.dark {
-     background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0.1), #fff, hsla(0, 0%, 100%, 0.1))
+    background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0.1), #fff, hsla(0, 0%, 100%, 0.1))
 }
 
 hr.horizontal.gray-light {
@@ -24564,7 +24571,7 @@ hr.horizontal.gray-light {
     .g-sidenav-show .navbar:not(.sidenav).navbar-main .navbar-nav {
         flex-direction: row;
         gap: 10px;
-        
+
     }
 
     .navbar .navbar-collapse .navbar-nav .dropdown .dropdown-menu {
@@ -27133,7 +27140,7 @@ p {
 }
 
 .text-gradient.text-primary {
-    background-image: linear-gradient(195deg, #ec407a, #d81b60)
+   background-image: linear-gradient(195deg, #a54dff, #7f2de0);
 }
 
 .text-gradient.text-info {
@@ -28660,7 +28667,7 @@ screen and (-ms-high-contrast:active) {
     height: 50px;
     display: flex;
     justify-content: center;
-    
+
 }
 
 .login-logo img {

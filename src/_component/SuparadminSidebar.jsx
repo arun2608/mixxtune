@@ -165,7 +165,7 @@ const SuparadminSidebar = () => {
 
                         <div className="d-flex justify-content-end gap-3 px-1">
                             <button className="btn btn-light rounded-pill px-4" onClick={() => setShowModal(false)}>Cancel</button>
-                            <button className="btn btn-success rounded-pill px-4">Next</button>
+                            <button className="btn btn-primary rounded-pill px-4">Next</button>
                         </div>
                     </div>
                 </div>

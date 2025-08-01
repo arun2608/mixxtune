@@ -21,6 +21,11 @@ export default function RootLayout({ children }) {
     setSidebar((prevState) => !prevState);
   };
 
+  const [theme, setTheme] = useState(false)
+  const toggleTheme = () => {
+    setTheme((prevState) => !prevState)
+  };
+
   return (
     <html lang="en">
       <head>
@@ -29,7 +34,7 @@ export default function RootLayout({ children }) {
         <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
 
         <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
 
@@ -38,10 +43,10 @@ export default function RootLayout({ children }) {
         <link href="/assets/css/coustom.css" rel="stylesheet" />
 
       </head>
-      <body className={`${sidebar ? "g-sidenav-show dark-version bg-gray-600 g-sidenav-pinned" : "g-sidenav-show dark-version bg-gray-600"}`}>
+        <body className={`g-sidenav-show  bg-gray-100 ${sidebar ? "g-sidenav-pinned" : ""} ${theme ? "" : "dark-version"}`}>
         <Sidebar />
         <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
-          <Header toggleSidebar={toggleSidebar} />
+          <Header toggleSidebar={toggleSidebar} toggleTheme={toggleTheme} />
           {children}
           <Footer />
         </main>

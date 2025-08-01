@@ -33,7 +33,7 @@ const page = () => {
                       </div>
                       <div className="text-center">
                         <Link href="/">
-                          <button type="button" className="btn bg-gradient-dark w-100 my-4 mb-2">Sign in</button>
+                          <button type="button" className="btn btn-primary w-100 my-4 mb-2">Sign in</button>
                         </Link>
                       </div>
                       <p className="mt-4 text-sm text-center">

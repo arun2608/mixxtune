@@ -14,6 +14,7 @@ const Sidebar = () => {
     const [releaseGenre, setReleaseGenre] = useState('any');
     const [catalogOpen, setCatalogOpen] = useState(false);
     const [analyticsOpen, setAnalyticsOpen] = useState(false);
+    const [financeDropdownOpen, setFinanceDropdownOpen] = useState(false);
 
     const router = useRouter();
 
@@ -33,7 +34,7 @@ const Sidebar = () => {
                 <div className="sidenav-footer position-relative w-100 bottom-0">
                     <div className="mx-3">
                         <button
-                            className="btn bg-gradient-green w-100 text-black"
+                            className="btn bg-gradient-primary w-100 text-black"
                             type="button"
                             onClick={() => setShowModal(true)}
                         >
@@ -54,124 +55,117 @@ const Sidebar = () => {
                         </li>
 
                         <li className="nav-item">
-                            <Link href="#"
+                            <div
+                                className="nav-link d-flex align-items-center justify-content-between cursor-pointer"
                                 onClick={() => setCatalogOpen(!catalogOpen)}
-                                className={`nav-link ${catalogOpen ? '' : ''}`}
                             >
-                                <i className="material-symbols-rounded opacity-5 me-2">library_music</i>
-                                <span className="nav-link-text ms-1 me-7">Catalog</span>
-                                <i className="material-symbols-rounded float-right">{catalogOpen ? 'expand_less' : 'expand_more'}</i>
-                            </Link>
-
+                                <Link href="#" className='d-flex align-items-center  justify-content-center'>
+                                    <i className="material-symbols-rounded opacity-5">library_music</i>
+                                    <span className="nav-link-text ms-1">Catalog</span>
+                                </Link>
+                                <i className="material-symbols-rounded">{catalogOpen ? "expand_less" : "expand_more"}</i>
+                            </div>
                         </li>
 
-
                         {catalogOpen && (
-                            <ul className="list-unstyled ps-4">
-                                <li>
-                                    <Link href="/catalog/releases" className={`nav-link dropedown-list ${pathname === '/catalog/releases' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                        <span className="ms-1">All Releases</span>
+
+                            <ul className="navbar-nav ps-4">
+                                <li className="nav-item">
+                                    <Link href="/catalog/releases" className={`nav-link text-dark ${pathname === '/catalog/releases' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="nav-link-text ms-1">All Releases</span>
                                     </Link>
                                 </li>
 
-                                <li>
-                                    <Link href="/catalog/draft" className={`nav-link dropedown-list ${pathname === '/catalog/draft' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                        <span className="ms-1">Draft</span>
+                                <li className="nav-item">
+                                    <Link href="/catalog/draft" className={`nav-link text-dark ${pathname === '/catalog/draft' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="nav-link-text ms-1">Draft</span>
                                     </Link>
                                 </li>
 
-                                 <li>
-                                    <Link href="/catalog/canceletion-request" className={`nav-link dropedown-list ${pathname === '/catalog/canceletion-request' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                        <span className="ms-1">Cancelation Request</span>
+                                <li className="nav-item">
+                                    <Link href="/catalog/canceletion-request" className={`nav-link text-dark ${pathname === '/catalog/canceletion-request' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="nav-link-text ms-1">Cancelation Request</span>
                                     </Link>
                                 </li>
-
-                                {/* <li>
-                                    <Link href="/catalog/artists" className={`nav-link dropedown-list ${pathname === '/catalog/artists' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                        <span className="ms-1">Artist</span>
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <Link href="/catalog/label" className={`nav-link dropedown-list ${pathname === '/catalog/label' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                        <span className="ms-1">Label</span>
-                                    </Link>
-                                </li> */}
                             </ul>
                         )}
 
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link href="#" className="nav-link text-dark">
                                 <i className="material-symbols-rounded opacity-5">do_not_disturb_on</i>
                                 <span className="nav-link-text ms-1">Release Copyright Claim</span>
                             </Link>
-                        </li>
+                        </li> */}
 
                         <li className="nav-item">
-                            <Link href="#"
+                            <div
+                                className="nav-link d-flex align-items-center justify-content-between cursor-pointer"
                                 onClick={() => setAnalyticsOpen(!analyticsOpen)}
-                                className={`nav-link ${analyticsOpen ? '' : ''}`}
                             >
-                                <i className="material-symbols-rounded opacity-5 me-2">bar_chart</i>
-                                <span className="nav-link-text ms-1 me-7">Analytics</span>
-                                <i className="material-symbols-rounded float-right">{analyticsOpen ? 'expand_less' : 'expand_more'}</i>
-                            </Link>
+                                <Link href="#" className='d-flex align-items-center  justify-content-center'>
+                                    <i className="material-symbols-rounded opacity-5">bar_chart</i>
+                                    <span className="nav-link-text ms-1">Analytics</span>
+                                </Link>
+                                <i className="material-symbols-rounded">{analyticsOpen ? "expand_less" : "expand_more"}</i>
+                            </div>
                         </li>
 
                         {analyticsOpen && (
-                            <ul className="list-unstyled ps-4">
-                                <li>
-                                    <Link href="/analytics/daily-trend" className={`nav-link dropedown-list ${pathname === '/analytics/daily-trend' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                        <span className="ms-1">Daily Trend</span>
+                            <ul className="navbar-nav ps-4">
+                                <li className="nav-item">
+                                    <Link href="/analytics/daily-trend" className={`nav-link text-dark ${pathname === '/analytics/daily-trend' ? 'active bg-gradient-dark text-white' : ''}`}>
+
+                                        <span className="nav-link-text ms-1">Daily Trend</span>
                                     </Link>
                                 </li>
 
-                                <li>
-                                    <Link href="/analytics/playlist-chart" className={`nav-link dropedown-list ${pathname === '/analytics/playlist-chart' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                        <span className="ms-1">Playlists and Charts</span>
+                                <li className="nav-item">
+                                    <Link href="/analytics/playlist-chart" className={`nav-link text-dark ${pathname === '/analytics/playlist-chart' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="nav-link-text ms-1">Playlists and Charts</span>
                                     </Link>
                                 </li>
 
-                                <li>
-                                    <Link href="/catalog/artists" className={`nav-link dropedown-list ${pathname === '/catalog/artists' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                        <span className="ms-1">Views</span>
+                                <li className="nav-item">
+                                    <Link href="/analytics/view" className={`nav-link text-dark ${pathname === '/analytics/view' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="nav-link-text ms-1">Views</span>
                                     </Link>
                                 </li>
-
-                                {/* <li>
-                                    <Link href="/catalog/label" className={`nav-link dropedown-list ${pathname === '/catalog/label' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                        <span className="ms-1">Short form videos</span>
-                                    </Link>
-                                </li>
-
-                                 <li>
-                                    <Link href="/catalog/label" className={`nav-link dropedown-list ${pathname === '/catalog/label' ? 'active bg-gradient-dark text-white' : ''}`}>
-                                        <span className="ms-1">Catalog optimization</span>
-                                    </Link>
-                                </li> */}
                             </ul>
                         )}
 
                         <li className="nav-item">
-                            <Link href="#" className="nav-link text-dark">
-                                <i className="material-symbols-rounded opacity-5">account_balance</i>
-                                <span className="nav-link-text ms-1">Bank Account</span>
-                            </Link>
+                            <div
+                                className="nav-link d-flex align-items-center justify-content-between cursor-pointer"
+                                onClick={() => setFinanceDropdownOpen(!financeDropdownOpen)}
+                            >
+                                <Link href="#" className='d-flex align-items-center  justify-content-center'>
+                                    <i className="material-symbols-rounded opacity-5">account_balance_wallet</i>
+                                    <span className="nav-link-text ms-1">Finance</span>
+                                </Link>
+                                <i className="material-symbols-rounded">{financeDropdownOpen ? "expand_less" : "expand_more"}</i>
+                            </div>
                         </li>
 
-                        <li className="nav-item">
-                            <Link href="#" className="nav-link text-dark">
-                                <i className="material-symbols-rounded opacity-5">wallet</i>
-                                <span className="nav-link-text ms-1">Payment Withdrawal</span>
-                            </Link>
-                        </li>
+                        {financeDropdownOpen && (
+                            <ul className="navbar-nav ps-4">
+                                <li className="nav-item">
+                                    <Link href="/finance/payment-history" className={`nav-link text-dark ${pathname === '/finance/payment-history' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="nav-link-text ms-1">Payment History</span>
+                                    </Link>
+                                </li>
 
-                        <li className="nav-item">
-                            <Link href="/payment-history" className="nav-link text-dark">
-                                <i className="material-symbols-rounded opacity-5">payments</i>
-                                <span className="nav-link-text ms-1">Payment History</span>
-                            </Link>
-                        </li>
+                                 <li className="nav-item">
+                                    <Link href="/finance/finacial-analytics" className={`nav-link text-dark ${pathname === '/finance/finacial-analytics' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="nav-link-text ms-1">Finacial analytics</span>
+                                    </Link>
+                                </li>
+                                 {/* <li className="nav-item">
+                                    <Link href="/finance/payment-history" className={`nav-link text-dark ${pathname === '/finance/payment-history' ? 'active bg-gradient-dark text-white' : ''}`}>
+                                        <span className="nav-link-text ms-1">Payment & opration</span>
+                                    </Link>
+                                </li> */}
+                            </ul>
+                        )}
 
                         <li className="nav-item">
                             <Link href="/admin/login" className="nav-link text-dark">
@@ -184,7 +178,7 @@ const Sidebar = () => {
 
                 <div className="sidenav-footer position-absolute w-100 bottom-0">
                     <div className="mx-3">
-                        <Link className="btn bg-gradient-green w-100 text-black" href="#">
+                        <Link className="btn bg-gradient-primary w-100 text-black" href="#">
                             Upgrade to pro
                         </Link>
                     </div>
@@ -288,9 +282,9 @@ const Sidebar = () => {
                                 {modalStep === 0 ? 'Cancel' : 'Back'}
                             </button>
                             {modalStep < 2 ? (
-                                <button className="btn btn-success rounded-pill px-4" onClick={() => setModalStep(modalStep + 1)}>Next</button>
+                                <button className="btn btn-primary rounded-pill px-4" onClick={() => setModalStep(modalStep + 1)}>Next</button>
                             ) : (
-                                <button className="btn btn-success rounded-pill px-4" onClick={() => {
+                                <button className="btn btn-primary rounded-pill px-4" onClick={() => {
                                     setShowModal(false);
                                     router.push('/catalog/releases/create');
                                 }}>Create</button>

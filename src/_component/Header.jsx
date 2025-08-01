@@ -1,126 +1,179 @@
-import React from 'react'
+"use client";
+import Link from "next/link";
+import React, { useState, useEffect, useRef } from "react";
 
-const Header = ({ toggleSidebar }) => {
+const Header = ({ toggleSidebar, toggleTheme }) => {
+    const [profileOpen, setProfileOpen] = useState(false);
+    const profileRef = useRef();
+
+    // Close the dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (profileRef.current && !profileRef.current.contains(event.target)) {
+                setProfileOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     return (
-        <>
-            <nav className="navbar mt-3 mb-4 navbar-main navbar-expand-lg px-0 mx-3 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-                <div className="container-fluid py-1 px-3">
-                    <nav aria-label="breadcrumb">
-                        <ol className="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                            {/* <li className="breadcrumb-item text-sm"><a className="opacity-5 text-dark" href="#">Pages</a></li> */}
-                            <li className="breadcrumb-item text-sm " aria-current="page">Dashboard</li>
-                        </ol>
-                    </nav>
-                    <div className="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-                        <div className="ms-md-auto pe-md-3 d-flex align-items-center">
-                            <div className="input-group input-group-outline">
-                                <label className="form-label">Type here...</label>
-                                <input type="text" className="form-control" />
-                            </div>
+        <nav className="navbar mt-3 mb-4 navbar-main navbar-expand-lg px-0 mx-3 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+            <div className="container-fluid py-1 px-3">
+                <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                        <li className="breadcrumb-item text-sm" aria-current="page">Dashboard</li>
+                    </ol>
+                </nav>
+                <div className="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                    <div className="ms-md-auto pe-md-3 d-flex align-items-center">
+                        <div className="input-group input-group-outline">
+                            <label className="form-label">Type here...</label>
+                            <input type="text" className="form-control" />
                         </div>
-                        <ul className="navbar-nav d-flex align-items-center  justify-content-end">
-                            <li className="nav-item pe-3 d-flex align-items-center">
-                                <a href="#" className="nav-link text-body p-0">
-                                    <i className="material-symbols-rounded fixed-plugin-button-nav">settings</i>
-                                </a>
-                            </li>
-
-                            <li className="nav-item dropdown pe-3 d-flex align-items-center">
-                                <a href="#" className="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i className="material-symbols-rounded">notifications</i>
-                                </a>
-                                <ul className="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                                    <li className="mb-2">
-                                        <a className="dropdown-item border-radius-md" href="#">
-                                            <div className="d-flex py-1">
-                                                <div className="my-auto">
-                                                    <img src="/assets/img/team-2.jpg" className="avatar avatar-sm  me-3 " />
-                                                </div>
-                                                <div className="d-flex flex-column justify-content-center">
-                                                    <h6 className="text-sm font-weight-normal mb-1">
-                                                        <span className="font-weight-bold">New message</span> from Laur
-                                                    </h6>
-                                                    <p className="text-xs text-secondary mb-0">
-                                                        <i className="fa fa-clock me-1"></i>
-                                                        13 minutes ago
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="mb-2">
-                                        <a className="dropdown-item border-radius-md" href="#">
-                                            <div className="d-flex py-1">
-                                                <div className="my-auto">
-                                                    <img src="https://demos.creative-tim.com/material-dashboard/assets/img/small-logos/logo-spotify.svg" className="avatar avatar-sm bg-gradient-dark  me-3 " />
-                                                </div>
-                                                <div className="d-flex flex-column justify-content-center">
-                                                    <h6 className="text-sm font-weight-normal mb-1">
-                                                        <span className="font-weight-bold">New album</span> by Travis Scott
-                                                    </h6>
-                                                    <p className="text-xs text-secondary mb-0">
-                                                        <i className="fa fa-clock me-1"></i>
-                                                        1 day
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    {/* <li>
-                                        <a className="dropdown-item border-radius-md" href="#">
-                                            <div className="d-flex py-1">
-                                                <div className="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
-                                                    <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                        <title>credit-card</title>
-                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                                                <g transform="translate(1716.000000, 291.000000)">
-                                                                    <g transform="translate(453.000000, 454.000000)">
-                                                                        <path className="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-                                                                        <path className="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                                                    </g>
-                                                                </g>
-                                                            </g>
-                                                        </g>
-                                                    </svg>
-                                                </div>
-                                                <div className="d-flex flex-column justify-content-center">
-                                                    <h6 className="text-sm font-weight-normal mb-1">
-                                                        Payment successfully completed
-                                                    </h6>
-                                                    <p className="text-xs text-secondary mb-0">
-                                                        <i className="fa fa-clock me-1"></i>
-                                                        2 days
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li> */}
-                                </ul>
-                            </li>
-
-                            <li className="nav-item d-flex align-items-center">
-                                <a href="/admin/login" className="nav-link text-body font-weight-bold px-0">
-                                    <i className="material-symbols-rounded">account_circle</i>
-                                </a>
-                            </li>
-
-                            <li className="nav-item d-xl-none ps-3 d-flex align-items-center" onClick={toggleSidebar}>
-                                <a href="#" className="nav-link text-body p-0" id="iconNavbarSidenav">
-                                    <div className="sidenav-toggler-inner">
-                                        <i className="sidenav-toggler-line"></i>
-                                        <i className="sidenav-toggler-line"></i>
-                                        <i className="sidenav-toggler-line"></i>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
+                    <ul className="navbar-nav d-flex align-items-center justify-content-end">
+
+                        <li className="nav-item pe-3 d-flex align-items-center">
+                            <a href="#" className="nav-link text-body p-0">
+                                <i className="material-symbols-rounded fixed-plugin-button-nav">settings</i>
+                            </a>
+                        </li>
+
+                        <li className="nav-item pe-3 d-flex align-items-center" onClick={toggleTheme}>
+                            <a href="#" className="nav-link text-body p-0">
+                                <i className="material-symbols-rounded fixed-plugin-button-nav">dark_mode</i>
+                            </a>
+                        </li>
+
+                        <li className="nav-item dropdown pe-3 d-flex align-items-center">
+                            <a href="#" className="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i className="material-symbols-rounded">notifications</i>
+                            </a>
+                            <ul className="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                                <li className="mb-2">
+                                    <a className="dropdown-item border-radius-md" href="#">
+                                        <div className="d-flex py-1">
+                                            <div className="my-auto">
+                                                <img src="/assets/img/team-2.jpg" className="avatar avatar-sm me-3" />
+                                            </div>
+                                            <div className="d-flex flex-column justify-content-center">
+                                                <h6 className="text-sm font-weight-normal mb-1">
+                                                    <span className="font-weight-bold">New message</span> from Laur
+                                                </h6>
+                                                <p className="text-xs text-secondary mb-0">
+                                                    <i className="fa fa-clock me-1"></i>
+                                                    13 minutes ago
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li className="mb-2">
+                                    <a className="dropdown-item border-radius-md" href="#">
+                                        <div className="d-flex py-1">
+                                            <div className="my-auto">
+                                                <img src="https://demos.creative-tim.com/material-dashboard/assets/img/small-logos/logo-spotify.svg" className="avatar avatar-sm bg-gradient-dark me-3" />
+                                            </div>
+                                            <div className="d-flex flex-column justify-content-center">
+                                                <h6 className="text-sm font-weight-normal mb-1">
+                                                    <span className="font-weight-bold">New album</span> by Travis Scott
+                                                </h6>
+                                                <p className="text-xs text-secondary mb-0">
+                                                    <i className="fa fa-clock me-1"></i>
+                                                    1 day
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li className="nav-item dropdown d-flex align-items-center position-relative" ref={profileRef}>
+                            <button
+                                className="nav-link text-body font-weight-bold px-0 bg-transparent border-0"
+                                onClick={() => setProfileOpen(!profileOpen)}
+                            >
+                                <i className="material-symbols-rounded">account_circle</i>
+                            </button>
+
+                            {profileOpen && (
+                                <ul
+                                    className="dropdown-menu show position-absolute mt-2 py-2 shadow-lg"
+
+                                >
+                                    <li>
+                                        <Link className="dropdown-item d-flex align-items-center" href="/profile">
+                                            <i className="material-symbols-rounded me-2">person</i> Profile
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link className="dropdown-item d-flex align-items-center" href="/tax-information">
+                                            <i className="material-symbols-rounded me-2">account_balance</i> Tax Information
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link className="dropdown-item d-flex align-items-center" href="#">
+                                            <i className="material-symbols-rounded me-2">credit_card</i> Bank Information
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link className="dropdown-item d-flex align-items-center" href="/user-access">
+                                            <i className="material-symbols-rounded me-2">group</i> Use Access
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link className="dropdown-item d-flex align-items-center" href="#">
+                                            <i className="material-symbols-rounded me-2">lock_open</i> Password
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link className="dropdown-item d-flex align-items-center" href="#">
+                                            <i className="material-symbols-rounded me-2">draft</i> Addition Services
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <Link className="dropdown-item d-flex align-items-center" href="#">
+                                            <i className="material-symbols-rounded me-2">support_agent</i> Support
+                                        </Link>
+                                    </li>
+
+                                    <li>
+                                        <hr className="horizontal dark mt-0 mb-2" />
+                                    </li>
+
+                                    <li>
+                                        <Link className="dropdown-item d-flex align-items-center text-danger" href="/admin/login">
+                                            <i className="material-symbols-rounded me-2">logout</i> Logout
+                                        </Link>
+                                    </li>
+                                </ul>
+                            )}
+                        </li>
+
+                        <li className="nav-item d-xl-none ps-3 d-flex align-items-center" onClick={toggleSidebar}>
+                            <a href="#" className="nav-link text-body p-0" id="iconNavbarSidenav">
+                                <div className="sidenav-toggler-inner">
+                                    <i className="sidenav-toggler-line"></i>
+                                    <i className="sidenav-toggler-line"></i>
+                                    <i className="sidenav-toggler-line"></i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
+    );
+};
 
-        </>
-    )
-}
-
-export default Header
+export default Header;

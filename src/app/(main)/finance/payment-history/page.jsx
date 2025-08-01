@@ -208,7 +208,7 @@ const Page = () => {
                                 <p>(Final step content, e.g. summary or confirmation)</p>
                                 <div className="text-end mt-3">
                                     <button className="btn btn-dark me-2" onClick={() => setStep(2)}>« Back</button>
-                                    <button className="btn btn-success">Generate Report</button>
+                                    <button className="btn btn-primary">Generate Report</button>
                                 </div>
                             </div>
                         </div>

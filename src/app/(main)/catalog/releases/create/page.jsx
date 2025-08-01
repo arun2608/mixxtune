@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 // import FileUplode from '@/_component/FileUplode';
 // import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Page = () => {
     const [activeTab, setActiveTab] = useState(1);
-    const [popUp,setPopUp] = useState(0)
+    const [popUp, setPopUp] = useState(0)
     const [preview, setPreview] = useState(null);
 
     const handleFileChange = (e) => {
@@ -67,6 +67,30 @@ const Page = () => {
     const handleRemove3 = (index) => {
         const updatedRows = concertsRows.filter((_, i) => i !== index);
         setConcertsRows(updatedRows);
+    };
+
+
+
+    const fileInputRef = useRef(null);
+    const [files, setFiles] = useState([]);
+
+    const handleFileSelect = (event) => {
+        const selectedFiles = Array.from(event.target.files);
+        setFiles((prev) => [...prev, ...selectedFiles]);
+    };
+
+    const handleAddFileClick = () => {
+        fileInputRef.current.click();
+    };
+
+    const handleDeleteFile = (index) => {
+        const newFiles = [...files];
+        newFiles.splice(index, 1);
+        setFiles(newFiles);
+    };
+
+    const handleCancelAll = () => {
+        setFiles([]);
     };
 
 
@@ -607,10 +631,10 @@ const Page = () => {
                         Tracks
                     </a>
 
-                    <a className={`cursor-pointer ${activeTab == "4" ? "tab-link active" : "tab-link"}`}
+                    {/* <a className={`cursor-pointer ${activeTab == "4" ? "tab-link active" : "tab-link"}`}
                         onClick={() => setActiveTab("4")}
                     >Price
-                    </a>
+                    </a> */}
 
                     <a className={`cursor-pointer ${activeTab == "5" ? "tab-link active" : "tab-link"}`}
                         onClick={() => setActiveTab("5")}
@@ -637,7 +661,7 @@ const Page = () => {
 
                 {
                     activeTab == '1' && (
-                        <form className="custom-form-wrapper">
+                        <form className="custom-form-wrapper upload-method-container">
                             <div className="row gy-3">
                                 <div className="col-12 col-md-2 col-lg-2">
                                     <div className="custom-upload-box-nryn position-relative">
@@ -682,7 +706,7 @@ const Page = () => {
                                     <div className="custom-form-group">
                                         <div className="form-check">
                                             <input className="form-check-input" type="checkbox" id="compilationCheck" />
-                                            <label className="form-check-label" htmlFor="compilationCheck">Various Artists / Compilation</label>
+                                            <label className="form-check-label text-start" htmlFor="compilationCheck">Various Artists / Compilation</label>
                                         </div>
                                     </div>
 
@@ -769,14 +793,14 @@ const Page = () => {
                                 </div>
                             </div>
                             <div className='w-100 d-flex justify-content-end mt-3'>
-                                <button type="button" className="btn btn-success">save</button>
+                                <button type="button" className="btn btn-primary">save</button>
                             </div>
                         </form>
                     )
                 }
 
                 {
-                    activeTab == '2' && (
+                    activeTab === '2' && (
                         <div className="upload-method-container">
                             <div className='row'>
                                 <div className='col-12 col-md-3 col-lg-3'>
@@ -785,16 +809,27 @@ const Page = () => {
                                             <i className='material-symbols-rounded mx-2'>upload</i>
                                             Import method
                                         </h6>
-                                        <button type="button" className="btn btn-success">Uploader</button>
+                                        <button type="button" className="btn btn-primary">Uploader</button>
                                     </div>
                                 </div>
                                 <div className='col-12 col-md-9 col-lg-9'>
                                     <div className="card uploader-box shadow-sm">
                                         <div className="d-flex gap-3 mb-4">
-                                            <button className="btn btn-success px-4">
+                                            <button className="btn btn-primary px-4" onClick={handleAddFileClick}>
                                                 + Add files
                                             </button>
-                                            <button className="btn btn-danger px-4">Cancel all uploads</button>
+                                            <button className="btn btn-danger px-4" onClick={handleCancelAll}>
+                                                Cancel all uploads
+                                            </button>
+
+                                            <input
+                                                type="file"
+                                                multiple
+                                                ref={fileInputRef}
+                                                onChange={handleFileSelect}
+                                                accept="audio/*,video/mp4,video/quicktime"
+                                                style={{ display: 'none' }}
+                                            />
                                         </div>
 
                                         <table className="table table-bordered align-middle">
@@ -808,28 +843,38 @@ const Page = () => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div className="file-name"></div>
-                                                        <div className="error-text"></div>
-                                                        <div className="text-muted small">video</div>
-                                                    </td>
-                                                    <td className="text-center text-success fw-bold">
-                                                        <i className="material-symbols-rounded mb-0 text-success fw-bold text-xxl">check</i>
-                                                    </td>
-                                                    <td className="text-center text-danger ">
-                                                        <i className="material-symbols-rounded mb-0 fw-bold text-danger text-xxl">close</i>
-                                                        {/* <br /><span className="text-danger">Wrong format</span> */}
-                                                    </td>
-                                                    <td className="text-center text-danger">
-                                                        <i className='material-symbols-rounded mb-0 fw-bold text-danger text-xxl'>close</i>
-                                                    </td>
-                                                    <td className="text-center">
-                                                        <button className="btn btn-outline-secondary">
-                                                            <i className="material-symbols-rounded text-xxl">delete</i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
+                                                {files.map((file, index) => (
+                                                    <tr key={index}>
+                                                        <td>
+                                                            <div className="file-name">{file.name}</div>
+                                                            <div className="text-muted small">{file.type}</div>
+                                                        </td>
+                                                        <td className="text-center text-success fw-bold">
+                                                            <i className="material-symbols-rounded text-success">check</i>
+                                                        </td>
+                                                        <td className="text-center text-success">
+                                                            <i className="material-symbols-rounded text-success">check</i>
+                                                        </td>
+                                                        <td className="text-center text-success">
+                                                            <i className="material-symbols-rounded text-success">check</i>
+                                                        </td>
+                                                        <td className="text-center">
+                                                            <button
+                                                                className="btn btn-outline-secondary"
+                                                                onClick={() => handleDeleteFile(index)}
+                                                            >
+                                                                <i className="material-symbols-rounded">delete</i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                                {files.length === 0 && (
+                                                    <tr>
+                                                        <td colSpan="5" className="text-center text-muted">
+                                                            No files added
+                                                        </td>
+                                                    </tr>
+                                                )}
                                             </tbody>
                                         </table>
 
@@ -844,34 +889,35 @@ const Page = () => {
                             </div>
 
                             <div className='w-100 d-flex justify-content-end mt-3'>
-                                <button type="button" className="btn btn-success">save</button>
+                                <button type="button" className="btn btn-primary">Save</button>
                             </div>
                         </div>
                     )
                 }
 
 
-                {activeTab === '3' && (
-                    <div className="row mt-3">
-                        <div className="col-12 col-md-2 col-lg-2">
-                            <p>Volume 1</p>
-                            <div
-                                className="border rounded-2 p-1 px-2 text-white d-flex justify-content-center align-items-center cursor-pointer"
-                                onClick={()=>setPopUp(1)}
-                            >
-                                <i className="material-symbols-rounded">add</i>
-                                <span className="ms-1">Add Track</span>
+                {
+                    activeTab === '3' && (
+                        <div className="upload-method-container row mt-3">
+                            <div className="col-12 col-md-2 col-lg-2">
+                                <p>Volume 1</p>
+                                <div
+                                    className="border rounded-2 p-1 px-2 d-flex justify-content-center align-items-center cursor-pointer"
+                                    onClick={() => setPopUp(1)}
+                                >
+                                    <i className="material-symbols-rounded">add</i>
+                                    <span className="ms-1">Add Track</span>
+                                </div>
+                            </div>
+
+                            <div className='w-100 d-flex justify-content-end mt-3'>
+                                <button type="button" className="btn btn-primary">save</button>
                             </div>
                         </div>
-
-                        <div className='w-100 d-flex justify-content-end mt-3'>
-                            <button type="button" className="btn btn-success">save</button>
-                        </div>
-                    </div>
-                )}
+                    )}
 
                 {/* First Modal - Choose Track */}
-                <div className={`modal fade ${popUp == 1 ? "show d-block pop-up-bg":""}`} id="addTrackModal" tabIndex="-1" aria-hidden="true">
+                <div className={`modal fade ${popUp == 1 ? "show d-block pop-up-bg" : ""}`} id="addTrackModal" tabIndex="-1" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered">
                         <div className=" card modal-content rounded-2">
                             <div className="modal-header">
@@ -893,21 +939,21 @@ const Page = () => {
                                 </div>
                             </div>
                             <div className="modal-footer border-top-0">
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={()=>setPopUp(0)}>Close</button>
-                                <button type="button" className="btn btn-success"
-                                    onClick={()=>setPopUp(2)}>Validate</button>
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={() => setPopUp(0)}>Close</button>
+                                <button type="button" className="btn btn-primary"
+                                    onClick={() => setPopUp(2)}>Validate</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Second Modal - Asset Metadata */}
-                <div className={`modal fade ${popUp == 2 ? "show d-block pop-up-bg":""}`} id="metadataModal" tabIndex="-1" aria-hidden="true">
+                <div className={`modal fade ${popUp == 2 ? "show d-block pop-up-bg" : ""}`} id="metadataModal" tabIndex="-1" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered rounded-2 modal-lg secound-popup">
                         <div className="card modal-content rounded-2">
                             <div className="modal-header">
                                 <h5 className="modal-title fw-semibold">Assets metadata</h5>
-                                <button type="button" className="btn-close" onClick={()=>setPopUp(0)} >
+                                <button type="button" className="btn-close" onClick={() => setPopUp(0)} >
                                     <i className="material-symbols-rounded">
                                         close
                                     </i>
@@ -1159,14 +1205,14 @@ const Page = () => {
                             </div>
                             <div className="modal-footer border-top-0">
                                 {/* <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
-                                <button type="button" className="btn btn-success">Save</button>
+                                <button type="button" className="btn btn-primary">Save</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-                {
+                {/* {
                     activeTab == '4' && (
                         <form className="custom-form-wrapper">
                             <div className='row'>
@@ -1180,16 +1226,16 @@ const Page = () => {
                                 </div>
                             </div>
                             <div className='w-100 d-flex justify-content-end mt-3'>
-                                <button type="button" className="btn btn-success">save</button>
+                                <button type="button" className="btn btn-primary">save</button>
                             </div>
                         </form>
 
                     )
-                }
+                } */}
 
                 {
                     activeTab == '5' && (
-                        <form action="custom-form-wrapper">
+                        <form action="custom-form-wrapper upload-method-container">
                             <div className="terr-container">
                                 <div className="region" id="asia">
                                     <h6>Asia</h6>
@@ -1419,7 +1465,7 @@ const Page = () => {
                                 </div>
                             </div>
                             <div className='w-100 d-flex justify-content-end mt-3'>
-                                <button type="button" className="btn btn-success">save</button>
+                                <button type="button" className="btn btn-primary">save</button>
                             </div>
                         </form>
                     )
@@ -1427,7 +1473,7 @@ const Page = () => {
 
                 {
                     activeTab == '6' && (
-                        <form className="custom-form-wrapper">
+                        <form className="custom-form-wrapper upload-method-container">
                             <div className='row g-4'>
 
                                 <div className="custom-form-group-nyrn">
@@ -1460,7 +1506,7 @@ const Page = () => {
                                 </div>
                             </div>
                             <div className='w-100 d-flex justify-content-end mt-3'>
-                                <button type="button" className="btn btn-success">save</button>
+                                <button type="button" className="btn btn-primary">save</button>
                             </div>
                         </form>
                     )
@@ -1469,8 +1515,7 @@ const Page = () => {
                 {
                     activeTab == '7' && (
 
-                        <form className="custom-form-wrapper">
-
+                        <form className="custom-form-wrapper upload-method-container">
                             <div className='release-speech'>
                                 <p className='border-bottom text-sm'>RELEASE SPEECH</p>
                                 <div className='row'>
@@ -1535,7 +1580,7 @@ const Page = () => {
                                 <div className="row mt-3">
                                     <div className="col-12 col-md-2 col-lg-2">
                                         <div
-                                            className='border rounded-2 p-1 px-2 text-white d-flex justify-content-center align-items-center cursor-pointer'
+                                            className='border rounded-2 p-1 px-2 d-flex justify-content-center align-items-center cursor-pointer'
                                             onClick={handleAddMore}
 
                                         >
@@ -1598,7 +1643,7 @@ const Page = () => {
                                 <div className="row mt-3">
                                     <div className="col-12 col-md-2 col-lg-2">
                                         <div
-                                            className='border rounded-2 p-1 px-2 text-white d-flex justify-content-center align-items-center cursor-pointer'
+                                            className='border rounded-2 p-1 px-2  d-flex justify-content-center align-items-center cursor-pointer'
                                             onClick={handleAddMore2}
                                         >
                                             <i className='material-symbols-rounded'>add</i>
@@ -1826,7 +1871,7 @@ const Page = () => {
                                 <div className="row mt-3">
                                     <div className="col-12 col-md-2 col-lg-2">
                                         <div
-                                            className='border rounded-2 p-1 px-2 text-white d-flex justify-content-center align-items-center cursor-pointer'
+                                            className='border rounded-2 p-1 px-2 d-flex justify-content-center align-items-center cursor-pointer'
                                             onClick={handleAddMore3}
                                         >
                                             <i className='material-symbols-rounded'>add</i>
@@ -1862,7 +1907,7 @@ const Page = () => {
                             </div>
 
                             <div className='w-100 d-flex justify-content-end mt-3'>
-                                <button type="button" className="btn btn-success">save</button>
+                                <button type="button" className="btn btn-primary">save</button>
                             </div>
                         </form>
                     )
@@ -1870,8 +1915,8 @@ const Page = () => {
 
                 {
                     activeTab == '8' && (
-                        <form className="custom-form-wrapper">
-                            <button type="button" className="btn btn-success">save</button>
+                        <form className="custom-form-wrapper upload-method-container">
+                            <button type="button" className="btn btn-primary">save</button>
                         </form>
                     )
 
