@@ -116,7 +116,7 @@ const Page = () => {
                                 </div>
                                 <div className="next-button mt-4 text-end">
                                     <button
-                                        className="btn bg-gradient-green text-black"
+                                        className="btn bg-gradient-primary  text-black"
                                         onClick={handleNext}
                                         disabled={!startDate || !endDate}
                                     >
@@ -194,7 +194,7 @@ const Page = () => {
 
                                 <div className="text-end mt-4">
                                     <button className="btn btn-outline-secondary me-2" onClick={() => setStep(1)}>« Back</button>
-                                    <button className="btn bg-gradient-green text-black" onClick={() => setStep(3)}>» Next</button>
+                                    <button className="btn bg-gradient-primary text-black" onClick={() => setStep(3)}>» Next</button>
                                 </div>
                             </div>
                         </div>

@@ -118,7 +118,7 @@ const Header = ({ toggleSidebar, toggleTheme }) => {
                                     </li>
 
                                     <li>
-                                        <Link className="dropdown-item d-flex align-items-center" href="#">
+                                        <Link className="dropdown-item d-flex align-items-center" href="/bank-information">
                                             <i className="material-symbols-rounded me-2">credit_card</i> Bank Information
                                         </Link>
                                     </li>
